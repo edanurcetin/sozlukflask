@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Öğrenci Bilgileri</title>
+</head>
+<body>
+    <h1>Öğrenci Bilgileri</h1>
+
+    <form method="POST">
+        <label for="student_id">Öğrenci ID:</label>
+        <input type="text" id="student_id" name="student_id" required>
+        <button type="submit">Bilgileri Göster</button>
+    </form>
+
+    {% if student_info %}
+        <h2>Öğrenci Bilgileri</h2>
+        <p><strong>Adı:</strong> {{ student_info['name'] }}</p>
+        <p><strong>Yaşı:</strong> {{ student_info['age'] }}</p>
+        <p><strong>Bölümü:</strong> {{ student_info['department'] }}</p>
+    {% elif student_info is not none %}
+        <p>Bu ID ile bir öğrenci bulunamadı.</p>
+    {% endif %}
+</body>
+</html>
+
+
+
+
+
